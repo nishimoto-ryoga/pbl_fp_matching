@@ -44,6 +44,8 @@ group :development do
   gem 'spring'
   #追加
   gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :test do
