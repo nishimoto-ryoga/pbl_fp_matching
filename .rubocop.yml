@@ -28,9 +28,9 @@ Rails/FilePath:
     - 'lib/tasks/dev.rake'
     - 'spec/rails_helper.rb'
 
-## `and return` の形式を利用できるようにします。基本的には、&& と || を使います。
+## && と || を強制するために有効化
 Style/AndOr:
-  Enabled: false
+  Enabled: true
 
 ## 日本語コメントを許可します。
 Style/AsciiComments:
@@ -63,7 +63,7 @@ Lint/StructNewOverride:
   Enabled: true
 
 Layout/LineLength:
-  Max: 200
+  Max: 120
 
 Metrics/AbcSize:
   Exclude:
