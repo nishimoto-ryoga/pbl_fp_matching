@@ -48,6 +48,9 @@ group :development do
 
   # 追加
   gem 'spring-commands-rspec'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :test do
