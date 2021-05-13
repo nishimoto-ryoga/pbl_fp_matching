@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protected
 
   # ユーザー登録時に名前を登録できるようにする
+  # https://github.com/heartcombo/devise#strong-parameters
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
