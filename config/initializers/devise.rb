@@ -14,7 +14,10 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '87703048cf0530e6eb487df82f7d1c3e21f248780ce78bd1baa4bd2c027fccfb6572e000fb40fe72974776f1359a1a06855901e12e4aa4cc9e533d337aad17d6' # rubocop:disable Layout/LineLength
+
+  # rubocop:disable Layout/LineLength
+  # config.secret_key = 'c782e9537c1453dc1bc2d17140391c8115bbcd79bbb641d3f7b544a1a2b6181eed174d1d9a6ecdb6c93ed52e415a0e9229ddd9a66a5aab6ad0e978d183525b46'
+  # rubocop:enable Layout/LineLength
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +129,10 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '7044beb6f3e65762653c0b4527910fb98fe78e714124a66034f66759ac66482eeedadd85f0102d4f20a6a080e266048ff445545aaf4ee758265943b1e816544b' # rubocop:disable Layout/LineLength
+  
+  # rubocop:disable Layout/LineLength
+  # config.pepper = '4e5b9a3ef33a0c9b2915fb6f067de3cbe2e5e797e19d221748d16617f2fd75d8152f381607d5cebc47a29e595655466433b00abea21ea3a8849525fec3200ed6'
+  # rubocop:enable Layout/LineLength
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -244,7 +250,8 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  # viewをカスタマイズ
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
