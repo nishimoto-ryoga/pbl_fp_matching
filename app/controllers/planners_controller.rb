@@ -1,4 +1,5 @@
 class PlannersController < ApplicationController
+  # Pllannerでログインしていなければsign_inページにリダイレクトされる
   before_action :authenticate_planner!
 
   def show
