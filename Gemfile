@@ -34,6 +34,7 @@ group :development, :test do
 
   # 追加
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -51,6 +52,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem "pre-commit"
 end
 
 group :test do
@@ -65,6 +67,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # 追加
-gem 'pry-rails'
 gem "devise"
-gem "pre-commit"
