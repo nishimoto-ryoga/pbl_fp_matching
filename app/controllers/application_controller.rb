@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
   
   # ログアウト後後遷移先指定
   def after_sign_out_path_for(resource)
-      if resource == :planner
-          top_fp_path
-      else
-          root_path
-      end
+    if resource == :planner
+        top_fp_path
+    else
+        root_path
+    end
   end
 
   protected
