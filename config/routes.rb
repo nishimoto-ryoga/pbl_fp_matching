@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   devise_for :clients
   root "home#top"
   get "/top_fp" => "home#top_fp"
+  
+  devise_for :planners
+  resources :planners, only: [:show, :edit]
 end

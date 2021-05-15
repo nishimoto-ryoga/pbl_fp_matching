@@ -142,3 +142,7 @@ Style/RegexpLiteral:
 # https://rubocop.readthedocs.io/en/stable/cops_style/#styleslicingwithrange
 Style/SlicingWithRange:
   Enabled: true
+
+# https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Layout/SpaceInsideBlockBraces
+Style/SpaceInsideBlockBraces:
+  EnforcedStyle: space
