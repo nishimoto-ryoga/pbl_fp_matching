@@ -7,11 +7,7 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_out_path_for(resource)
-    if resource == :planner
-      top_fp_path
-    else
-      root_path
-    end
+    resource == :planner ? top_fp_path : root_path
   end
 
   protected
