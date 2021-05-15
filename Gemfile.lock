@@ -121,6 +121,9 @@ GEM
     parallel (1.20.1)
     parser (3.0.1.1)
       ast (~> 2.4.1)
+    pluginator (1.5.0)
+    pre-commit (0.39.0)
+      pluginator (~> 1.5)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -277,6 +280,7 @@ DEPENDENCIES
   factory_bot_rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pre-commit
   pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
