@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_060821) do
+ActiveRecord::Schema.define(version: 2021_05_17_062203) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_060821) do
     t.string "end_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["start_at", "end_at"], name: "index_time_frames_on_start_at_and_end_at", unique: true
   end
 
   add_foreign_key "reservation_frames", "planners"
