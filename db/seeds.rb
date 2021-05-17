@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# 10時〜18:00まで30分単位で枠を作成(計16枠)
+16.times do |n|
+  TimeFrame.create!(
+      start_at: "#{(Time.zone.parse("10:00") + 60*30*n).strftime("%H:%M")}",
+      end_at: "#{(Time.zone.parse("10:30") + 60*30*n).strftime("%H:%M")}"
+  )
+end
