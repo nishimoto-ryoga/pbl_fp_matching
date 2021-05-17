@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_032609) do
+ActiveRecord::Schema.define(version: 2021_05_17_005831) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,4 +38,23 @@ ActiveRecord::Schema.define(version: 2021_05_10_032609) do
     t.index ["reset_password_token"], name: "index_planners_on_reset_password_token", unique: true
   end
 
+  create_table "reservation_frames", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "planner_id", null: false
+    t.integer "time_frame_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["planner_id"], name: "index_reservation_frames_on_planner_id"
+    t.index ["time_frame_id"], name: "index_reservation_frames_on_time_frame_id"
+  end
+
+  create_table "time_frames", force: :cascade do |t|
+    t.time "start_at"
+    t.time "end_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "reservation_frames", "planners"
+  add_foreign_key "reservation_frames", "time_frames"
 end
