@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_044615) do
+ActiveRecord::Schema.define(version: 2021_05_17_060821) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 2021_05_17_044615) do
   end
 
   create_table "time_frames", force: :cascade do |t|
-    t.time "start_at"
-    t.time "end_at"
+    t.string "start_at"
+    t.string "end_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
