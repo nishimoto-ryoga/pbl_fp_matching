@@ -1,4 +1,5 @@
 <%= form_for(@reservation_frame) do |f| %>
+  <%= render 'shared/error_form', model: f.object %>
   <%= f.date_field :date %>
   <%= f.collection_select :time_frame_id, TimeFrame.all, :id, :start_at, :prompt => "開始時間を選択" %>
   <%= f.submit %>
