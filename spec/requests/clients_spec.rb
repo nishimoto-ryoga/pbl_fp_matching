@@ -1,17 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe "Clients", type: :request do
-  describe "GET /show" do
-    it "returns http success" do
-      get "/clients/show"
-      expect(response).to have_http_status(:success)
+  describe "マイページのアクセス" do
+    before do
+      @client = FactoryBot.create(:client)
     end
-  end
-
-  describe "GET /edit" do
-    it "returns http success" do
-      get "/clients/edit"
-      expect(response).to have_http_status(:success)
+    context "ログイン前" do
+      it "sign_inにリダイレクトされる" do
+        get client_path(@client.id)
+        expect(response).to redirect_to new_client_session_path
+      end
+    end
+    context "ログイン後" do
+      before do
+        sign_in @client
+      end
+      it "正常なレスポンスが返ってくる(200)" do
+        get client_path(@client.id)
+        expect(response.status).to eq 200
+      end
+      it "clientのnameが表示される" do
+        get client_path(@client.id)
+        expect(response.body).to include @client.name
+      end
     end
   end
 
