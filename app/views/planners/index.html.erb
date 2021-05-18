@@ -1,0 +1,8 @@
+<div>
+  <%= render "shared/list" %>
+</div>
+
+<% @planners.each do |planner| %>
+    <%= planner.id %>
+    <%= planner.name %>
+<% end %>
