@@ -5,5 +5,5 @@ class Planner < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   # 予約枠を辿るときにPlannerがわからないという状況を防ぐ
-  has_many :reservation_frames, :restrict_with_exception
+  has_many :reservation_frames, dependent: :restrict_with_exception
 end
