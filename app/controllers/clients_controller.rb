@@ -1,20 +1,13 @@
 class ClientsController < ApplicationController
   # Clientでログインしていなければsign_inページにリダイレクトされる
   before_action :authenticate_client!
-  before_action :client_check, only: [:show, :edit]
   
   def show
-    @client = Client.find(params[:id])
+    @client = current_client
+    redirect_to client_path(current_client) if @client.id != params[:id].to_i
   end
   
   def edit
-  end
-  
-  private
-  
-  def client_check
-    @client = Client.find(params[:id])
-    redirect_to client_path(current_client.id) unless @client.id == current_client.id
   end
   
 end
