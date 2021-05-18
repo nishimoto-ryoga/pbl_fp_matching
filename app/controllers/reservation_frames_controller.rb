@@ -1,7 +1,7 @@
 class ReservationFramesController < ApplicationController
   
   def new
-    @reservation_frame = ReservationFrame.new()
+    @reservation_frame = ReservationFrame.new
   end
 
   def create
