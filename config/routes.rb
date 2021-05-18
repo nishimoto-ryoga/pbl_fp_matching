@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   
   devise_for :planners
   resources :planners, only: [:show, :edit]
+  resources :clients, only: [:show, :edit]
 end
