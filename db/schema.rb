@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_044615) do
+ActiveRecord::Schema.define(version: 2021_05_17_062203) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_044615) do
 
   create_table "reservation_frames", force: :cascade do |t|
     t.date "date"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false, null: false
     t.integer "planner_id", null: false
     t.integer "time_frame_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -50,10 +50,11 @@ ActiveRecord::Schema.define(version: 2021_05_17_044615) do
   end
 
   create_table "time_frames", force: :cascade do |t|
-    t.time "start_at"
-    t.time "end_at"
+    t.string "start_at", null: false
+    t.string "end_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["start_at", "end_at"], name: "index_time_frames_on_start_at_and_end_at", unique: true
   end
 
   add_foreign_key "reservation_frames", "planners"
