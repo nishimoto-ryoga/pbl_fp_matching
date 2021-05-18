@@ -147,3 +147,7 @@ Style/SlicingWithRange:
 # https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Layout/SpaceInsideBlockBraces
 Style/SpaceInsideBlockBraces:
   EnforcedStyle: space
+
+# https://msp-greg.github.io/rubocop/RuboCop/Cop/Style/MethodCallWithoutArgsParentheses.html
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: true
