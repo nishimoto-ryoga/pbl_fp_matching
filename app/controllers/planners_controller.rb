@@ -2,8 +2,8 @@ class PlannersController < ApplicationController
   # Pllannerでログインしていなければsign_inページにリダイレクトされる
   before_action :authenticate_planner!
 
-  def show
-    @planner = Planner.find(params[:id])
+  def mypage
+    @planner = current_planner
   end
 
   def edit
