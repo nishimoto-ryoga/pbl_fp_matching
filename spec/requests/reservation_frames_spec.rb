@@ -3,36 +3,44 @@ require 'rails_helper'
 RSpec.describe "ReservationFrames", type: :model do
   let!(:planner) { FactoryBot.create(:planner) }
   let!(:time_frame) { FactoryBot.create(:time_frame) }
-  it "正常に作成される" do
-    reservation_frame = ReservationFrame.new(
-      date: Time.zone.now.to_date,
-      time_frame_id: time_frame.id,
-      planner_id: planner.id
-    )
-    expect(reservation_frame).to be_valid
+  context 'date, time_frame_id, planner_id がすべて設定されている場合' do
+    it "正常に作成される" do
+      reservation_frame = ReservationFrame.new(
+        date: Time.zone.now.to_date,
+        time_frame_id: time_frame.id,
+        planner_id: planner.id
+      )
+      expect(reservation_frame).to be_valid
+    end
   end
-  it "time_frame_idが無く作成されず" do
-    reservation_frame = ReservationFrame.new(
-      date: Time.zone.now.to_date,
-      time_frame_id: time_frame.id,
-      planner_id: nil
-    )
-    expect(reservation_frame.valid?).to eq(false)
+  context 'time_frame_id が設定されていない場合' do
+    it "作成されない" do
+      reservation_frame = ReservationFrame.new(
+        date: Time.zone.now.to_date,
+        time_frame_id: time_frame.id,
+        planner_id: nil
+      )
+      expect(reservation_frame.valid?).to eq(false)
+    end
   end
-  it "planner_idが無く作成されず" do
-    reservation_frame = ReservationFrame.new(
-      date: Time.zone.now.to_date,
-      time_frame_id: time_frame.id,
-      planner_id: nil
-    )
-    expect(reservation_frame.valid?).to eq(false)
+  context 'planner_id が設定されていない場合' do
+    it "作成されない" do
+      reservation_frame = ReservationFrame.new(
+        date: Time.zone.now.to_date,
+        time_frame_id: time_frame.id,
+        planner_id: nil
+      )
+      expect(reservation_frame.valid?).to eq(false)
+    end
   end
-  it "dateが無く作成されず" do
-    reservation_frame = ReservationFrame.new(
-      date: nil,
-      time_frame_id: time_frame.id,
-      planner_id: planner.id
-    )
-    expect(reservation_frame.valid?).to eq(false)
+  context 'date が設定されていない場合' do
+    it "作成されない" do
+      reservation_frame = ReservationFrame.new(
+        date: nil,
+        time_frame_id: time_frame.id,
+        planner_id: planner.id
+      )
+      expect(reservation_frame.valid?).to eq(false)
+    end
   end
 end
