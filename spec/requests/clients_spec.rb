@@ -6,7 +6,7 @@ RSpec.describe "Clients", type: :request do
     
     context "ログイン前" do
       it "sign_inにリダイレクトされる" do
-        get client_path(client.id)
+        get mypage_clients_path
         expect(response).to redirect_to new_client_session_path
       end
     end
@@ -15,11 +15,11 @@ RSpec.describe "Clients", type: :request do
         sign_in client
       end
       it "正常なレスポンスが返ってくる(200)" do
-        get client_path(client.id)
+        get mypage_clients_path
         expect(response.status).to eq 200
       end
       it "clientのnameが表示される" do
-        get client_path(client.id)
+        get mypage_clients_path
         expect(response.body).to include client.name
       end
     end
