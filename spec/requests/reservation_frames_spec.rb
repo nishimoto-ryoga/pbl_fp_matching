@@ -4,7 +4,7 @@ RSpec.describe "ReservationFrames", type: :model do
   let!(:planner) { FactoryBot.create(:planner) }
   let!(:time_frame) { FactoryBot.create(:time_frame) }
   context 'date, time_frame_id, planner_id がすべて設定されている場合' do
-    it "正常に作成される" do
+    it "reservation_frameが有効" do
       reservation_frame = ReservationFrame.new(
         date: Time.zone.now.to_date,
         time_frame_id: time_frame.id,
@@ -14,7 +14,7 @@ RSpec.describe "ReservationFrames", type: :model do
     end
   end
   context 'time_frame_id が設定されていない場合' do
-    it "作成されない" do
+    it "reservation_frameが無効" do
       reservation_frame = ReservationFrame.new(
         date: Time.zone.now.to_date,
         time_frame_id: time_frame.id,
@@ -24,7 +24,7 @@ RSpec.describe "ReservationFrames", type: :model do
     end
   end
   context 'planner_id が設定されていない場合' do
-    it "作成されない" do
+    it "reservation_frameが無効" do
       reservation_frame = ReservationFrame.new(
         date: Time.zone.now.to_date,
         time_frame_id: time_frame.id,
@@ -34,7 +34,7 @@ RSpec.describe "ReservationFrames", type: :model do
     end
   end
   context 'date が設定されていない場合' do
-    it "作成されない" do
+    it "reservation_frameが無効" do
       reservation_frame = ReservationFrame.new(
         date: nil,
         time_frame_id: time_frame.id,
