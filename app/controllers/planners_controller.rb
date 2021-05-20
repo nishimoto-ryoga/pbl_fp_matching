@@ -4,7 +4,7 @@ class PlannersController < ApplicationController
 
   def show
     @planner = current_planner
-    @reservation_frames = ReservationFrame.where(planner_id: current_planner.id).order(:date)
+    @reservation_frames = ReservationFrame.where(planner_id: current_planner.id).order(:date).includes(:time_frame)
   end
 
   def edit
