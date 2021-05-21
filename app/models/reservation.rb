@@ -1,4 +1,4 @@
 class Reservation < ApplicationRecord
   belongs_to :client
-  belongs_to :reservtion_frame
+  belongs_to :reservation_frame
 end
