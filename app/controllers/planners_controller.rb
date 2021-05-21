@@ -1,6 +1,6 @@
 class PlannersController < ApplicationController
   # Planner/Clinetでログインしていなければsign_inページにリダイレクトされる
-  before_action :authenticate_planner!, except: :index
+  before_action :authenticate_planner!, only: :mypage
   before_action :authenticate_client!, only: :index
 
   def index
