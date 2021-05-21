@@ -1,22 +1,21 @@
 class PlannersController < ApplicationController
   # Planner/Clinetでログインしていなければsign_inページにリダイレクトされる
   before_action :authenticate_planner!, only: :mypage
-  before_action :authenticate_client!, only: :index
+  before_action :authenticate_client!, only: [:index, :show]
 
+  
+  def mypage
+    @planner = current_planner
+    @reservation_frames = ReservationFrame.where(planner_id: current_planner.id).order(:date).preload(:time_frame)
+  end
+  
   def index
     @planners = Planner.all
   end
 
-  def mypage
-    @planner = current_planner
-    @reservation_frames = ReservationFrame.where(planner_id: current_planner.id).order(:date).includes(:time_frame)
-  end
-
   def show
-    @planner = current_planner
-    @reservation_frames = ReservationFrame.where(planner_id: current_planner.id).order(:date).includes(:time_frame)
+    @planner = Planner.find(params[:id])
+    @reservation_frames = ReservationFrame.where(planner_id: params[:id]).order(:date).preload(:time_frame)
   end
 
-  def edit
-  end
 end

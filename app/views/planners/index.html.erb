@@ -5,4 +5,5 @@
 <% @planners.each do |planner| %>
   <%= planner.id %>
   <%= planner.name %>
+  <%= link_to "選択", planner_path(planner) %>
 <% end %>
