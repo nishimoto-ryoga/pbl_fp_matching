@@ -17,6 +17,4 @@ class PlannersController < ApplicationController
     @reservation_frames = ReservationFrame.where(planner_id: current_planner.id).order(:date).includes(:time_frame)
   end
 
-  def edit
-  end
 end
