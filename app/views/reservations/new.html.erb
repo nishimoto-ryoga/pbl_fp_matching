@@ -1,0 +1,19 @@
+<%= render "shared/list" %>
+
+<h1>予約確認</h1>
+
+<dl>
+  <dt>ファイナンシャルプランナー</dt>
+  <dd><%= @reservation_frame.planner.name %></dd>
+  <dt>希望日</dt>
+  <dd><%= @reservation_frame.date %></dd>
+  <dt>時間</dt>
+  <dd><%= @reservation_frame.time_frame.start_at + "〜" + @reservation_frame.time_frame.end_at %></dd>
+</dl>
+
+<%= link_to "キャンセル", planner_path(@reservation_frame.planner), class: "btn btn-primary" %>    
+
+<%= form_for @reservation, method: :post, url: reservations_path do |f| %>
+  <%= f.hidden_field :reservation_frame_id, :value => @reservation_frame.id %>
+  <%= f.submit "予約確定" %>
+<% end %>
