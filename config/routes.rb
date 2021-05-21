@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/top_fp" => "home#top_fp"
   
   devise_for :planners
-  resources :planners, only: [:show, :edit] do
+  resources :planners, only: [:index, :show] do
     get :mypage, on: :collection
   end
 
