@@ -25,4 +25,34 @@ RSpec.describe Planner, type: :request do
       end
     end
   end
+  
+  describe "FP一覧(index)のアクセス" do
+    let!(:planner) { FactoryBot.create(:planner) }
+    let!(:client) { FactoryBot.create(:client) }
+
+    context "ログインなし" do
+      it "clientのsign_inにリダイレクトされる" do
+        get planners_path
+        expect(response).to redirect_to new_client_session_path
+      end
+    end
+    context "Plannerでログイン" do
+      before do
+        sign_in planner
+      end
+      it "clientのsign_inにリダイレクトされる" do
+        get planners_path
+        expect(response).to redirect_to new_client_session_path
+      end
+    end
+    context "Clientでログイン" do
+      before do
+        sign_in client
+      end
+      it "正常なレスポンスが返ってくる(200)" do
+        get planners_path
+        expect(response.status).to eq 200
+      end
+    end
+  end
 end
