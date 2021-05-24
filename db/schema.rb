@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_005112) do
+ActiveRecord::Schema.define(version: 2021_05_24_121008) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_005112) do
     t.integer "reservation_frame_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id", "reservation_frame_id"], name: "index_reservations_on_client_id_and_reservation_frame_id", unique: true
     t.index ["client_id"], name: "index_reservations_on_client_id"
     t.index ["reservation_frame_id"], name: "index_reservations_on_reservation_frame_id"
   end
