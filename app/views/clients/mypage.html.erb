@@ -3,3 +3,20 @@
 </div>
 
 <h1>ニックネーム：<%= @client.name %></h1>
+
+予約一覧
+<table>
+  <tr>
+    <th>日付</th>
+    <th>開始時間</th>
+    <th>FP名</th>
+    <th></th>
+  </tr>
+  <% @reservations.each do |reservation| %>
+  <tr>
+    <td><%= reservation.reservation_frame.date %></td>
+    <td><%= reservation.reservation_frame.time_frame.start_at %></td>
+    <td><%= reservation.reservation_frame.planner.name %></td>
+  </tr>
+  <% end %>
+</table>
