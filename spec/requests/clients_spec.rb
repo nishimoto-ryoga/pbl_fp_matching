@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Clients", type: :request do
+RSpec.describe Client, type: :request do
   describe "マイページのアクセス" do
     let!(:client) { FactoryBot.create(:client) }
     
