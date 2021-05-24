@@ -8,7 +8,7 @@
   <dt>希望日</dt>
   <dd><%= @reservation_frame.date %></dd>
   <dt>時間</dt>
-  <dd><%= @reservation_frame.time_frame.start_at + "〜" + @reservation_frame.time_frame.end_at %></dd>
+  <dd><%= @reservation_frame.period_of_time %></dd>
 </dl>
 
 <%= link_to "キャンセル", planner_path(@reservation_frame.planner), class: "btn btn-primary" %>    
