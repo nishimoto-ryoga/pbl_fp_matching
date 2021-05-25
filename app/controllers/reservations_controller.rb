@@ -1,12 +1,11 @@
 class ReservationsController < ApplicationController
   def new
-    @reservation = Reservation.new
+    @reservation = current_client.reservations.new
     @reservation_frame = ReservationFrameDecorator.decorate(ReservationFrame.find(params[:reservation_frame_id]))
   end
 
   def create
-    reservation = Reservation.new(reservation_params)
-    reservation.client_id = current_client.id
+    reservation = current_client.reservations.new(reservation_params)
     if reservation.save
       redirect_to mypage_clients_path
     else
