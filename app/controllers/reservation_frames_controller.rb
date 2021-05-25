@@ -1,15 +1,14 @@
 class ReservationFramesController < ApplicationController
   
   def new
-    @reservation_frame = ReservationFrame.new
+    @reservation_frame = current_planner.reservation_frames.new
   end
 
   def create
-    @reservation_frame = ReservationFrame.new(reservation_frames_params)
-    @reservation_frame.planner_id = current_planner.id
+    @reservation_frame = current_planner.reservation_frames.new(reservation_frames_params)
     if @reservation_frame.save
       flash[:success] = "予約枠を登録しました。"
-      redirect_to planner_path(current_planner.id)
+      redirect_to mypage_planners_path
     else
       flash.now[:danger] = "予約枠の登録に失敗しました。"
       render :new
