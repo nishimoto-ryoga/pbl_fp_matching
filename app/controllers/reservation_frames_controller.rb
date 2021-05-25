@@ -8,8 +8,10 @@ class ReservationFramesController < ApplicationController
     @reservation_frame = ReservationFrame.new(reservation_frames_params)
     @reservation_frame.planner_id = current_planner.id
     if @reservation_frame.save
+      flash[:success] = "予約枠を登録しました。"
       redirect_to planner_path(current_planner.id)
     else
+      flash.now[:danger] = "予約枠の登録に失敗しました。"
       render :new
     end
   end
@@ -17,8 +19,10 @@ class ReservationFramesController < ApplicationController
   def hide
     reservation_frame = current_planner.reservation_frames.find(params[:id])
     if reservation_frame.update(is_deleted: true)
+      flash[:success] = "予約枠を削除しました。"
       redirect_to mypage_planners_path
     else
+      flash[:danger] = "予約枠の削除に失敗しました。"
       redirect_to mypage_planners_path
     end
   end
