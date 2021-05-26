@@ -8,7 +8,7 @@ RSpec.describe Reservation, type: :model do
   context 'client_id, reservation_frame_id がすべて設定されている場合' do
     let!(:reservation_frame_id) { reservation_frame.id }
     let!(:client_id) { client.id }
-    it { is_expected.not_to be_valid }
+    it { is_expected.to be_valid }
   end
   context 'client_id が設定されていない場合' do
     let!(:reservation_frame_id) { reservation_frame.id }
