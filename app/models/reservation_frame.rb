@@ -7,7 +7,7 @@ class ReservationFrame < ApplicationRecord
 
   scope :is_deleted, -> { where(:is_deleted => false) }
 
-  def is_reserved(reservation_frame_id)
-    return Reservation.exists?(reservation_frame_id: reservation_frame_id)
+  def is_reserved
+    return Reservation.exists?(reservation_frame_id: id)
   end
 end
