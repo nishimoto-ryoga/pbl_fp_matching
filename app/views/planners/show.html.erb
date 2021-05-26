@@ -8,15 +8,19 @@
   <tr>
     <th>日付</th>
     <th>開始時間</th>
-    <th>予約ステータス</th>
     <th></th>
   </tr>
   <% @reservation_frames.each do |reservation_frame| %>
   <tr>
     <td><%= reservation_frame.date %></td>
     <td><%= reservation_frame.time_frame.start_at %></td>
-    <td>未予約/予約確定</td>
-    <td><%= link_to "選択", new_reservation_path(reservation_frame_id: reservation_frame) %></td>
+    <td>
+      <% if reservation_frame.is_reserved(reservation_frame.id) %>
+        予約済み
+      <% else %>
+        <%= link_to "選択", new_reservation_path(reservation_frame_id: reservation_frame) %>
+      <% end %>
+    </td>
   </tr>
   <% end %>
 </table>
