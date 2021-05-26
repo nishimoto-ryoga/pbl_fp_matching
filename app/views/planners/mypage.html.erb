@@ -16,7 +16,7 @@
     <td><%= reservation_frame.date %></td>
     <td><%= reservation_frame.time_frame.start_at %></td>
     <td>未予約/予約確定</td>
-    <td><%= link_to  "キャンセル", hide_reservation_frame_path(reservation_frame.id), method: :put %></td>
+    <td><%= link_to  "キャンセル", delete_reservation_frame_path(reservation_frame.id), method: :put %></td>
   </tr>
   <% end %>
 </table>

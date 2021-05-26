@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   end
   resources :reservations, only: [:new, :create]
   resources :reservation_frames, only: [:new, :create] do
-    put :hide, on: :member
+    put :delete, on: :member
   end
 end

@@ -15,7 +15,7 @@ class ReservationFramesController < ApplicationController
     end
   end
 
-  def hide
+  def delete
     reservation_frame = current_planner.reservation_frames.find(params[:id])
     if reservation_frame.update(is_deleted: true)
       flash[:success] = "予約枠を削除しました。"
