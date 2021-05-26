@@ -17,7 +17,7 @@ class ReservationFramesController < ApplicationController
 
   def delete
     reservation_frame = current_planner.reservation_frames.find(params[:id])
-    if reservation_frame.update(is_deleted: true)
+    if reservation_frame.update(canceled_at: Time.current)
       flash[:success] = "予約枠を削除しました。"
       redirect_to mypage_planners_path
     else

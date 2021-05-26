@@ -5,7 +5,7 @@ class ReservationFrame < ApplicationRecord
 
   validates :date, presence: true
 
-  scope :is_deleted, -> { where(:is_deleted => false) }
+  scope :not_canceled, -> { where(canceled_at: nil) }
 
   def is_reserved
     return Reservation.exists?(reservation_frame_id: id)
