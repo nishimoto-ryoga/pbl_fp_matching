@@ -4,6 +4,7 @@ class ClientsController < ApplicationController
   
   def mypage
     @client = current_client
+    @reservations = @client.reservations.eager_load(:reservation_frame).order(:date)
   end
   
   def edit

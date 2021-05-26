@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "ReservationFrames", type: :model do
+RSpec.describe ReservationFrame, type: :model do
   let!(:planner) { FactoryBot.create(:planner) }
   let!(:time_frame) { FactoryBot.create(:time_frame) }
   context 'date, time_frame_id, planner_id がすべて設定されている場合' do

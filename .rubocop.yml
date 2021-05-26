@@ -64,6 +64,8 @@ Lint/StructNewOverride:
 
 Layout/LineLength:
   Max: 120
+  Exclude:
+  - 'db/schema.rb'
 
 Metrics/AbcSize:
   Exclude:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_062203) do
+ActiveRecord::Schema.define(version: 2021_05_24_121008) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 2021_05_17_062203) do
     t.index ["time_frame_id"], name: "index_reservation_frames_on_time_frame_id"
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.integer "client_id", null: false
+    t.integer "reservation_frame_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id", "reservation_frame_id"], name: "index_reservations_on_client_id_and_reservation_frame_id", unique: true
+    t.index ["client_id"], name: "index_reservations_on_client_id"
+    t.index ["reservation_frame_id"], name: "index_reservations_on_reservation_frame_id"
+  end
+
   create_table "time_frames", force: :cascade do |t|
     t.string "start_at", null: false
     t.string "end_at", null: false
@@ -59,4 +69,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_062203) do
 
   add_foreign_key "reservation_frames", "planners"
   add_foreign_key "reservation_frames", "time_frames"
+  add_foreign_key "reservations", "clients"
+  add_foreign_key "reservations", "reservation_frames"
 end
