@@ -17,7 +17,13 @@
     <td><%= reservation.reservation_frame.date %></td>
     <td><%= reservation.reservation_frame.time_frame.start_at %></td>
     <td><%= reservation.reservation_frame.planner.name %></td>
-    <td><%= link_to  "キャンセル", reservation_path(reservation.id), method: :delete %></td>
+    <td>
+      <% if reservation.reservation_frame.is_deleted == true %>
+        FPからキャンセルされました
+      <% else %>
+        <%= link_to  "キャンセル", reservation_path(reservation.id), method: :delete %>
+      <% end %>
+    </td>
   </tr>
   <% end %>
 </table>
