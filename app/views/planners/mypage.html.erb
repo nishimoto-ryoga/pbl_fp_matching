@@ -22,7 +22,7 @@
       未予約
       <% end %>
     </td>
-    <td><%= link_to  "キャンセル", delete_reservation_frame_path(reservation_frame.id), method: :put %></td>
+    <td><%= link_to  "キャンセル", reservation_frame_path(reservation_frame.id), method: :delete %></td>
   </tr>
   <% end %>
 </table>
