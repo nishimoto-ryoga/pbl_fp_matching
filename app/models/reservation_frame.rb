@@ -6,4 +6,8 @@ class ReservationFrame < ApplicationRecord
   validates :date, presence: true
 
   scope :is_deleted, -> { where(:is_deleted => false) }
+
+  def is_reserved(reservation_frame_id)
+    return Reservation.exists?(reservation_frame_id: reservation_frame_id)
+  end
 end
