@@ -1,4 +1,5 @@
 <% if client_signed_in? %> 
+  <%= link_to "マイページ", mypage_clients_path %>
   <%= link_to "FP一覧", planners_path %>
   <%= link_to "ログアウト", destroy_client_session_path , method: :delete %>
 <% else %>
