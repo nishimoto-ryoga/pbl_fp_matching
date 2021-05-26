@@ -5,4 +5,5 @@ class ReservationFrame < ApplicationRecord
 
   validates :date, presence: true
 
+  scope :is_deleted, -> { where(:is_deleted => false) }
 end

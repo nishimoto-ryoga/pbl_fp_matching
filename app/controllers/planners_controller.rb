@@ -5,7 +5,7 @@ class PlannersController < ApplicationController
 
   def mypage
     @planner = current_planner
-    @reservation_frames = @planner.reservation_frames.order(:date).eager_load(:time_frame).where(is_deleted: false)
+    @reservation_frames = @planner.reservation_frames.order(:date).eager_load(:time_frame).is_deleted
   end
 
   def index
