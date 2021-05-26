@@ -14,6 +14,15 @@ class ReservationFramesController < ApplicationController
     end
   end
 
+  def hide
+    reservation_frame = current_planner.reservation_frames.find(params[:id])
+    if reservation_frame.update(is_deleted: true)
+      redirect_to mypage_planners_path
+    else
+      redirect_to mypage_planners_path
+    end
+  end
+
   private
 
     def reservation_frames_params
