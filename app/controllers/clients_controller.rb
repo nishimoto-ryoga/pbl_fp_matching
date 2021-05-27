@@ -7,7 +7,15 @@ class ClientsController < ApplicationController
     @reservations = @client.reservations.eager_load(:reservation_frame).order(:date)
   end
   
-  def edit
+  def update
+    client = current_client
+    render json: client if client.update!(client_params)
+  end
+  
+  private
+
+  def client_params
+    params.require(:client).permit(:name)
   end
   
 end

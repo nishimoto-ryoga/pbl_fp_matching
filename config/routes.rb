@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :clients
-  resources :clients, only: [:edit] do
+  resources :clients, only: [:update] do
     get :mypage, on: :collection
   end
   resources :reservation_frames, only: [:new, :create]

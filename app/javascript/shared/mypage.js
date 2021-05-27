@@ -34,7 +34,7 @@ $(function () {
   });
 });
 
-// 編集内容更新
+// planner側の編集内容更新
 $(function () {
   $(".btn_update").on("click", function () {
     const textArea = $(".name_text");       
@@ -46,6 +46,38 @@ $(function () {
       type: 'PATCH',                 
       data: {                        
         planner: {
+          name: body
+        }
+      }
+    })
+
+    .done(function (data) {
+      const name = $(".name");                
+      const buttonEdit = $(".btn_edit");      
+      const textArea = $(".name_text");       
+      const button = $('.btns');              
+
+      name.show();
+      name.text(data.name);
+      buttonEdit.show();
+      textArea.hide();
+      button.hide();
+    })
+  });
+});
+
+// client側の編集内容更新
+$(function () {
+  $(".btn_update_client").on("click", function () {
+    const textArea = $(".name_text");       
+    const body = textArea.val();
+    const clientId = $(".current_client_id").val();
+
+    $.ajax({
+      url: '/clients/' + clientId, 
+      type: 'PATCH',                 
+      data: {                        
+        client: {
           name: body
         }
       }

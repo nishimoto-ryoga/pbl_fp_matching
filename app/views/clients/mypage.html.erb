@@ -2,7 +2,17 @@
   <%= render "shared/list" %>
 </div>
 
-<h1>ニックネーム：<%= @client.name %></h1>
+<div>
+  <h2>ニックネーム</h2>
+  <p class="name"><%= @client.name %></p>
+  <textarea style="display: none;" class="name_text"><%= @client.name %></textarea>
+  <button type="button" class="btn btn_edit">編集</button>
+  <div class="btns" style="display: none;">
+    <button type="button" class="btn btn_cancel">キャンセル</button>
+    <button type="submit" class="btn btn_update_client">更新</button>
+  </div>
+  <input type="hidden" value="<%= @client.id %>" class="current_client_id">
+</div>
 
 予約一覧
 <table>
@@ -16,7 +26,7 @@
   <tr>
     <td><%= reservation.reservation_frame.date %></td>
     <td><%= reservation.reservation_frame.time_frame.start_at %></td>
-    <td><%= reservation.reservation_frame.planner.name %></td>
+    <td><%= reservation.reservation_frame.client.name %></td>
   </tr>
   <% end %>
 </table>

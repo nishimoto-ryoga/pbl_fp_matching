@@ -8,7 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 // 追加
-import "../planner/mypage"
+import "../shared/mypage"
 
 Rails.start()
 Turbolinks.start()
