@@ -2,7 +2,17 @@
   <%= render "shared/list_fp" %>
 </div>
 
-<h1>ニックネーム：<%= @planner.name %></h1>
+<div>
+  <h2>ニックネーム</h2>
+  <p class="name"><%= @planner.name %></p>
+  <textarea style="display: none;" class="name_text"><%= @planner.name %></textarea>
+  <button type="button" class="btn btn_edit">編集</button>
+  <div class="btns" style="display: none;">
+    <button type="button" class="btn btn_cancel">キャンセル</button>
+    <button type="submit" class="btn btn_update">更新</button>
+  </div>
+  <input type="hidden" value="<%= current_planner.id %>" class="current_planner_id">
+</div>
 
 <table>
   <tr>

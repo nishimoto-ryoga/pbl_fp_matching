@@ -17,4 +17,15 @@ class PlannersController < ApplicationController
     @reservation_frames = @planner.reservation_frames.order(:date).eager_load(:time_frame)
   end
 
+  def update
+    planner = current_planner
+    render json: planner if planner.update!(planner_params)
+  end
+  
+  private
+
+  def planner_params
+    params.require(:planner).permit(:name)
+  end
+
 end
