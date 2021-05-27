@@ -16,7 +16,7 @@
     <td><%= reservation_frame.date %></td>
     <td><%= reservation_frame.time_frame.start_at %></td>
     <td>
-      <% if reservation_frame.is_reserved %>
+      <% if reservation_frame.is_reserved? %>
       予約済み
       <% else %>
       未予約
