@@ -28,7 +28,7 @@ class ReservationFramesController < ApplicationController
 
   private
 
-    def reservation_frames_params
-      params.require(:reservation_frame).permit(:date, :time_frame_id)
-    end
+  def reservation_frames_params
+    params.require(:reservation_frame).permit(:date, :time_frame_id)
+  end
 end
