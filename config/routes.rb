@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/top_fp" => "home#top_fp"
   
   devise_for :planners
-  resources :planners, only: [:index, :show, :update] do
+  resources :planners, only: [:index, :show] do
     get :mypage, on: :collection
   end
 
@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   end
   resources :reservation_frames, only: [:new, :create]
   resources :reservations, only: [:new, :create]
+
+  namespace :api do
+    resources :planners, only: :update
+  end
 end

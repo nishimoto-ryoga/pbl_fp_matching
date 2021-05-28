@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  protect_from_forgery with: :exception
+
   def after_sign_in_path_for(resource)
     return mypage_planners_path if planner_signed_in?
     mypage_clients_path if client_signed_in?

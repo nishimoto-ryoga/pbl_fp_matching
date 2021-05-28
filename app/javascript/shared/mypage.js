@@ -42,7 +42,7 @@ $(function () {
     const plannerId = $(".current_planner_id").val();
 
     $.ajax({
-      url: '/planners/' + plannerId, 
+      url: '/api/planners/' + plannerId, 
       type: 'PATCH',                 
       data: {                        
         planner: {
