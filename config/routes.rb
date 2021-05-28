@@ -13,7 +13,5 @@ Rails.application.routes.draw do
     get :mypage, on: :collection
   end
   resources :reservations, only: [:new, :create]
-  resources :reservation_frames, only: [:new, :create] do
-    delete :destroy, on: :member
-  end
+  resources :reservation_frames, only: [:new, :create, :destroy]
 end
