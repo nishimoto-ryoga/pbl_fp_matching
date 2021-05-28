@@ -1,11 +1,12 @@
 class RenameIsDeletedColumnToReservationFrames < ActiveRecord::Migration[6.1]
   def up
-    rename_column :reservation_frames, :is_deleted, :canceled_at
-    change_column :reservation_frames, :canceled_at, :datetime, :default => nil, :null =>  true
+    remove_column :reservation_frames, :is_deleted
+    add_column :reservation_frames, :canceled_at, :datetime, :default => nil, :null =>  true
   end
-
+  
   def down
-    rename_column :reservation_frames, :canceled_at, :is_deleted
+    remove_column :reservation_frames, :canceled_at
+    add_column :reservation_frames, :is_deleted, :boolean, :default => false, :null =>  false
   end
   
 end
