@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_121008) do
+ActiveRecord::Schema.define(version: 2021_05_27_050817) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,11 +40,12 @@ ActiveRecord::Schema.define(version: 2021_05_24_121008) do
 
   create_table "reservation_frames", force: :cascade do |t|
     t.date "date"
-    t.boolean "is_deleted", default: false, null: false
     t.integer "planner_id", null: false
     t.integer "time_frame_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "canceled_at"
+    t.index ["date", "planner_id", "time_frame_id"], name: "reservation_frames_index", unique: true
     t.index ["planner_id"], name: "index_reservation_frames_on_planner_id"
     t.index ["time_frame_id"], name: "index_reservation_frames_on_time_frame_id"
   end

@@ -15,7 +15,14 @@
   <tr>
     <td><%= reservation_frame.date %></td>
     <td><%= reservation_frame.time_frame.start_at %></td>
-    <td>未予約/予約確定</td>
+    <td>
+      <% if reservation_frame.is_reserved? %>
+      予約済み
+      <% else %>
+      未予約
+      <% end %>
+    </td>
+    <td><%= link_to  "キャンセル", reservation_frame_path(reservation_frame.id), method: :delete %></td>
   </tr>
   <% end %>
 </table>

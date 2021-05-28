@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :clients, only: [:edit] do
     get :mypage, on: :collection
   end
-  resources :reservation_frames, only: [:new, :create]
   resources :reservations, only: [:new, :create]
+  resources :reservation_frames, only: [:new, :create, :destroy]
 end
