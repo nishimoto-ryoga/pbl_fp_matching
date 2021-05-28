@@ -14,8 +14,8 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    reservation_frame = current_client.reservations.find(params[:id])
-    if reservation_frame.destroy
+    reservation = current_client.reservations.find(params[:id])
+    if reservation.destroy
       flash[:success] = "予約をキャンセルしました。"
       redirect_to mypage_clients_path
     else
