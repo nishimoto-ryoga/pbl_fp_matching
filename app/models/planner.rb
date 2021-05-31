@@ -5,4 +5,5 @@ class Planner < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reservation_frames, dependent: :restrict_with_exception
+  validates :name, presence: true
 end

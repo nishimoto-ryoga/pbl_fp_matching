@@ -12,12 +12,12 @@ class ClientsController < ApplicationController
   end
 
   def update
-    @client = current_client
-    if @client.update!(client_params)
+    if current_client.update(client_params)
       flash[:success] = '編集しました。'
       redirect_to mypage_clients_path
     else
       flash.now[:danger] = '編集に失敗しました。'
+      @client = current_client
       render :edit
     end
   end
