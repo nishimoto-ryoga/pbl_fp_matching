@@ -24,10 +24,10 @@ class PlannersController < ApplicationController
   def update
     @planner = current_planner
     if @planner.update!(planner_params)
-      flash[:success] = "編集しました。"
+      flash[:success] = '編集しました。'
       redirect_to mypage_planners_path
     else
-      flash.now[:danger] = "編集に失敗しました。"
+      flash.now[:danger] = '編集に失敗しました。'
       render :edit
     end
   end
@@ -37,5 +37,4 @@ class PlannersController < ApplicationController
     def planner_params
       params.require(:planner).permit(:name)
     end
-
 end
