@@ -12,7 +12,7 @@ class ReservationFrame < ApplicationRecord
   end
 
   def canceled?
-    self.canceled_at.nil?
+    self.canceled_at.present?
   end
   
 end

@@ -19,9 +19,9 @@
     <td><%= reservation.reservation_frame.planner.name %></td>
     <td>
       <% if reservation.reservation_frame.canceled? %>
-        <%= link_to  "キャンセル", reservation_path(reservation), method: :delete %>
-      <% else %>
         FPからキャンセルされました
+      <% else %>
+        <%= link_to  "キャンセル", reservation_path(reservation), method: :delete %>
       <% end %>
     </td>
   </tr>
