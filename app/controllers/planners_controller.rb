@@ -14,7 +14,7 @@ class PlannersController < ApplicationController
 
   def show
     @planner = Planner.find(params[:id])
-    @reservation_frames = @planner.reservation_frames.order(:date).eager_load(:time_frame)
+    @reservation_frames = @planner.reservation_frames.order(:date).eager_load(:time_frame).not_canceled
   end
 
 end
