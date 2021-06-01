@@ -1,7 +1,7 @@
 class PlannersController < ApplicationController
   # Plannerでログインしていなければsign_inページにリダイレクトされる
   before_action :authenticate_planner!, only: :mypage
-  before_action :authenticate_client!, only: [:index, :show]
+  before_action :authenticate_client!, only: %i[index show]
 
   def mypage
     @planner = current_planner
@@ -16,5 +16,4 @@ class PlannersController < ApplicationController
     @planner = Planner.find(params[:id])
     @reservation_frames = @planner.reservation_frames.order(:date).eager_load(:time_frame).not_canceled
   end
-
 end

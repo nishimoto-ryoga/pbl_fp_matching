@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root "home#top"
-  get "/top_fp" => "home#top_fp"
-  
+  root 'home#top'
+  get '/top_fp' => 'home#top_fp'
+
   devise_for :planners
-  resources :planners, only: [:index, :show] do
+  resources :planners, only: %i[index show] do
     get :mypage, on: :collection
   end
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :clients, only: [:edit] do
     get :mypage, on: :collection
   end
-  
-  resources :reservation_frames, only: [:new, :create, :destroy]
-  resources :reservations, only: [:new, :create, :destroy]
+
+  resources :reservation_frames, only: %i[new create destroy]
+  resources :reservations, only: %i[new create destroy]
 end
