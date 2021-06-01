@@ -10,7 +10,6 @@ class ReservationFrameDecorator < Draper::Decorator
   #     end
   #   end
   def period_of_time
-    reservation_frame.time_frame.start_at + "〜" + reservation_frame.time_frame.end_at
+    "#{reservation_frame.time_frame.start_at} 〜 #{reservation_frame.time_frame.end_at}"
   end
-
 end

@@ -8,8 +8,9 @@ AllCops:
   TargetRubyVersion: 2.7
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
   # to ignore them, so only the ones explicitly set in this file are enabled.
-  DisabledByDefault: true
+  DisabledByDefault: false
   SuggestExtensions: false
+  NewCops: enable
   Exclude:
     - 'bin/**/*'
     - '**/tmp/**/*'
@@ -19,6 +20,9 @@ AllCops:
     - 'actionmailbox/test/dummy/**/*'
     - 'actiontext/test/dummy/**/*'
     - '**/node_modules/**/*'
+  ### 以下は自動生成で手動で修正することがないので対象外
+    - 'db/schema.rb'
+    - config/puma.rb
 
 Rails:
   Enabled: true
@@ -153,3 +157,8 @@ Style/SpaceInsideBlockBraces:
 # https://msp-greg.github.io/rubocop/RuboCop/Cop/Style/MethodCallWithoutArgsParentheses.html
 Style/MethodCallWithoutArgsParentheses:
   Enabled: true
+
+## 以下defaltをオンにしてから追記したもの
+### ruby 3.0を使用しているので不要
+Style/FrozenStringLiteralComment:
+  Enabled: false

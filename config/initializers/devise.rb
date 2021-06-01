@@ -129,7 +129,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  
+
   # rubocop:disable Layout/LineLength
   # config.pepper = '4e5b9a3ef33a0c9b2915fb6f067de3cbe2e5e797e19d221748d16617f2fd75d8152f381607d5cebc47a29e595655466433b00abea21ea3a8849525fec3200ed6'
   # rubocop:enable Layout/LineLength
