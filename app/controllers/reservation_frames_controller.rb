@@ -1,5 +1,6 @@
 class ReservationFramesController < ApplicationController
   def new
+    @planner = current_planner
     @reservation_frame = current_planner.reservation_frames.new
   end
 
