@@ -7,12 +7,11 @@ class ReservationFrame < ApplicationRecord
 
   scope :not_canceled, -> { where(canceled_at: nil) }
 
-  def is_reserved?
+  def reserved?
     reservation.present?
   end
 
   def canceled?
-    self.canceled_at.present?
+    canceled_at?
   end
-  
 end

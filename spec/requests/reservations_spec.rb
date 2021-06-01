@@ -20,5 +20,4 @@ RSpec.describe Reservation, type: :model do
     let!(:client_id) { client.id }
     it { is_expected.not_to be_valid }
   end
-  
 end

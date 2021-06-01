@@ -2,7 +2,10 @@
   <%= render "shared/list_fp" %>
 </div>
 
-<h1>ニックネーム：<%= @planner.name %></h1>
+<div>
+<h2>ニックネーム：<%= @planner.name %></h2>
+<%= link_to "編集", edit_planner_path(current_planner) %>
+</div>
 
 <table>
   <tr>
@@ -16,13 +19,13 @@
     <td><%= reservation_frame.date %></td>
     <td><%= reservation_frame.time_frame.start_at %></td>
     <td>
-      <% if reservation_frame.is_reserved? %>
+      <% if reservation_frame.reserved? %>
       予約済み
       <% else %>
       未予約
       <% end %>
     </td>
-    <td><%= link_to  "キャンセル", reservation_frame_path(reservation_frame.id), method: :delete %></td>
+    <td><%= link_to "キャンセル", reservation_frame_path(reservation_frame.id), method: :delete %></td>
   </tr>
   <% end %>
 </table>
