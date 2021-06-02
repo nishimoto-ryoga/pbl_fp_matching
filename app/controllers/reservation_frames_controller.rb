@@ -5,6 +5,7 @@ class ReservationFramesController < ApplicationController
   end
 
   def create
+    @planner = current_planner
     @reservation_frame = current_planner.reservation_frames.new(reservation_frames_params)
     if @reservation_frame.save
       flash[:success] = '予約枠を登録しました。'
