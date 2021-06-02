@@ -7,5 +7,24 @@ class ClientsController < ApplicationController
     @reservations = @client.reservations.eager_load(:reservation_frame).order(:date)
   end
 
-  def edit; end
+  def edit
+    @client = current_client
+  end
+
+  def update
+    if current_client.update(client_params)
+      flash[:success] = '編集しました。'
+      redirect_to mypage_clients_path
+    else
+      flash.now[:danger] = '編集に失敗しました。'
+      @client = current_client
+      render :edit
+    end
+  end
+
+  private
+
+    def client_params
+      params.require(:client).permit(:name)
+    end
 end

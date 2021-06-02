@@ -2,9 +2,12 @@
   <%= render "shared/list" %>
 </div>
 
-<h1>ニックネーム：<%= @client.name %></h1>
+<div>
+<h2>ニックネーム：<%= @client.name %></h2>
+<%= link_to "編集", edit_client_path(current_client) %>
+</div>
 
-予約一覧
+<h2>予約一覧</h2>
 <table>
   <tr>
     <th>日付</th>

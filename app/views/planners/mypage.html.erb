@@ -2,7 +2,10 @@
   <%= render "shared/list_fp" %>
 </div>
 
-<h1>ニックネーム：<%= @planner.name %></h1>
+<div>
+<h2>ニックネーム：<%= @planner.name %></h2>
+<%= link_to "編集", edit_planner_path(current_planner) %>
+</div>
 
 <table>
   <tr>

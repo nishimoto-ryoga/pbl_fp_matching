@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   get '/top_fp' => 'home#top_fp'
 
   devise_for :planners
-  resources :planners, only: %i[index show] do
+  resources :planners, only: %i[index show edit update] do
     get :mypage, on: :collection
   end
 
   devise_for :clients
-  resources :clients, only: [:edit] do
+  resources :clients, only: %i[edit supdate] do
     get :mypage, on: :collection
   end
 

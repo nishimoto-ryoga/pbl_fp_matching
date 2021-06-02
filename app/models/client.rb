@@ -5,4 +5,5 @@ class Client < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reservations, dependent: :restrict_with_exception
+  validates :name, presence: true
 end
