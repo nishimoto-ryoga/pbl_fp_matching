@@ -1,11 +1,20 @@
-<div class="dropdown">
-  <%= link_to "マイページ", mypage_clients_path, class:"p-2 text-white text-decoration-none" %>
-  <%= link_to "FP一覧", planners_path, class:"p-2 text-white text-decoration-none" %>
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-    <%= client.name %>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><%= link_to "ユーザー情報編集", "#", class:"dropdown-item" %></li>
-    <li><%= link_to "ログアウト", destroy_client_session_path , method: :delete, class:"dropdown-item" %></li>
-  </ul>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm bg-dark">
+  <h5 class="my-0 me-md-auto font-weight-normal text-white">オンライン家計相談</h3>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <div class="dropdown">
+      <%= link_to "マイページ", mypage_clients_path, class:"p-2 text-white text-decoration-none" %>
+      <%= link_to "FP一覧", planners_path, class:"p-2 text-white text-decoration-none" %>
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= client.name %>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><%= link_to "ユーザー情報編集", edit_client_path(client), class:"dropdown-item" %></li>
+        <li><%= link_to "ログアウト", destroy_client_session_path , method: :delete, class:"dropdown-item" %></li>
+      </ul>
+    </div>
+  </nav>
 </div>
+
+<% flash.each do |_, message| %>
+  <%= message %>
+<% end %>

@@ -1,0 +1,14 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm bg-dark">
+  <h5 class="my-0 me-md-auto font-weight-normal text-white">オンライン家計相談</h3>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <%= link_to "ログイン", new_planner_session_path, class:"btn btn-outline-light me-2" %>
+    <%= link_to "新規登録", new_planner_registration_path, class:"btn btn-warning" %>
+    <%= link_to "一般の方はこちら", root_path, class:"p-2 text-white text-decoration-none" %>
+  </nav>
+</div>
+
+<% flash.each do |_, message| %>
+  <%= message %>
+<% end %>
+
+<main class="container">
