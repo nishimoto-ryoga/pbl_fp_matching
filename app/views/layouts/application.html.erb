@@ -14,10 +14,10 @@
 
   <body class="text-center">
     <% if client_signed_in? %>
-      <%= render "shared/list", client: @client %>
+      <%= render "shared/header", client: @client %>
       <main class="container">
     <% elsif planner_signed_in? %>
-      <%= render "shared/list_fp", planner: @planner %>
+      <%= render "shared/header_fp", planner: @planner %>
       <main class="container">
     <% end %>
 
