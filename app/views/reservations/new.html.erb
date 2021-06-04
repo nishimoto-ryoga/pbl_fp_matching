@@ -1,5 +1,3 @@
-<%= render "shared/list" %>
-
 <h1>予約確認</h1>
 
 <dl>
@@ -11,9 +9,9 @@
   <dd><%= @reservation_frame.period_of_time %></dd>
 </dl>
 
-<%= link_to "キャンセル", planner_path(@reservation_frame.planner), class: "btn btn-primary" %>    
 
 <%= form_for @reservation, method: :post, url: reservations_path do |f| %>
   <%= f.hidden_field :reservation_frame_id, :value => @reservation_frame.id %>
-  <%= f.submit "予約確定" %>
+  <%= link_to "キャンセル", planner_path(@reservation_frame.planner) %>    
+  <%= f.submit "予約確定", class: "btn btn-primary" %>
 <% end %>

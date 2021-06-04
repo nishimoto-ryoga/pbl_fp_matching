@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   def new
+    @client = current_client
     @reservation = current_client.reservations.new
     @reservation_frame = ReservationFrameDecorator.decorate(ReservationFrame.find(params[:reservation_frame_id]))
   end
