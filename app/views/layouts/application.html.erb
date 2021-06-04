@@ -13,14 +13,25 @@
   </head>
 
   <body class="text-center">
-    <% if client_signed_in? %>
-      <%= render "shared/header", client: @client %>
-      <main class="container">
-    <% elsif planner_signed_in? %>
-      <%= render "shared/header_fp", planner: @planner %>
-      <main class="container">
+
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm bg-dark">
+      <h5 class="my-0 me-md-auto font-weight-normal text-white">オンライン家計相談</h3>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <% if client_signed_in? %>
+          <%= render "shared/header", client: @client %>
+        <% elsif planner_signed_in? %>
+          <%= render "shared/header_fp", planner: @planner %>
+        <% else %>
+          <%= yield :head %>
+        <% end %>
+      </nav>
+    </div>
+
+    <% flash.each do |_, message| %>
+      <%= message %>
     <% end %>
 
+    <main class="container">
       <%= yield %>
     </main>
       
