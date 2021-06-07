@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      client:
+        name: ニックネーム
+      planner:
+        name: ニックネーム
+      reservation_frame:
+        date: 日付
+        time_frame: 開始時間
