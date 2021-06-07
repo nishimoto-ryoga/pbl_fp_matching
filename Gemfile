@@ -47,13 +47,15 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # 開発時にbin/railsなどのコマンド実行で起動時間の遅さが気になったときに以下spring gemを導入する
   # gem 'spring'
+  # gem 'spring-commands-rspec'
+
   # 追加
   gem 'pre-commit'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
-  # gem 'spring-commands-rspec'
 end
 
 group :test do
