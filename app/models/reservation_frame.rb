@@ -27,7 +27,8 @@ class ReservationFrame < ApplicationRecord
 
   def saturday_is_shorttime
     return if date.nil? || time_frame_id.nil?
-    return unless date.wday == 6 && !time_frame_id.between?(3, 11)
+    return unless date.wday == 6
+    return if time_frame_id.between?(3, 11)
 
     errors.add(:date, '土曜日は11時〜15時の間で指定してください。')
   end
