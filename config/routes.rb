@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get :mypage, on: :collection
   end
 
+  get '/reservation_frames' => 'reservation_frames#new'
   resources :reservation_frames, only: %i[new create destroy]
   resources :reservations, only: %i[new create destroy]
 end
