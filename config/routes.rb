@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get :mypage, on: :collection
   end
 
-  devise_for :clients
+  devise_for :clients, module: 'clients'
   resources :clients, only: %i[edit update] do
     get :mypage, on: :collection
   end
