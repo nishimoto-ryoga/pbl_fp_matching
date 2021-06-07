@@ -1,4 +1,4 @@
-class Chars4bytesValidator < ActiveModel::EachValidator
+class CharsMustBeLessThan4bytesValidator < ActiveModel::EachValidator
   # UTF-8で4バイト以上の文字かを判定する
   def validate_each(record, attribute, value)
     return if value.nil?
