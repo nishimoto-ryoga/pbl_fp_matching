@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
 
   get '/reservation_frames' => 'reservation_frames#new'
-  resources :reservation_frames, only: %i[new create destroy]
-  resources :reservations, only: %i[new create destroy]
+  resources :reservation_frames, only: %i[show new create destroy] do
+    resource :reservations, only: :new
+  end
+  resources :reservations, only: %i[create destroy]
 end
