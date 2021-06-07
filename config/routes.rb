@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#top'
   get '/top_fp' => 'home#top_fp'
 
-  devise_for :planners
+  devise_for :planners, module: 'planners'
   resources :planners, only: %i[index show edit update] do
     get :mypage, on: :collection
   end

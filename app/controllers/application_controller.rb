@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :client_cannot_login_to_planner
   before_action :planner_cannot_login_to_client
 
   def after_sign_in_path_for(_resource)
@@ -18,13 +17,6 @@ class ApplicationController < ActionController::Base
 
     flash[:danger] = 'ログアウトしてから再度お試しください。'
     redirect_to mypage_planners_path
-  end
-
-  def client_cannot_login_to_planner
-    return unless request.path.in?(['/planners/sign_up', '/planners/sign_in']) && client_signed_in?
-
-    flash[:danger] = 'ログアウトしてから再度お試しください。'
-    redirect_to mypage_clients_path
   end
 
   protected
