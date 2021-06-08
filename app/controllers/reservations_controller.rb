@@ -8,8 +8,10 @@ class ReservationsController < ApplicationController
   def create
     reservation = current_client.reservations.new(reservation_params)
     if reservation.save
+      flash[:success] = '予約しました。'
       redirect_to mypage_clients_path
     else
+      flash[:danger] = '予約に失敗しました。'
       redirect_to planners_path
     end
   end

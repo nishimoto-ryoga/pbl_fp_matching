@@ -1,5 +1,9 @@
-<% @planners.each do |planner| %>
-  <%= planner.id %>
-  <%= planner.name %>
-  <%= link_to "選択", planner_path(planner) %>
-<% end %>
+<h2 class="mt-5">FP一覧</h2>
+<table class="table table-bordered">
+  <% @planners.each do |planner| %>
+  <tr>
+    <td><%= planner.name %></td>
+    <td><%= link_to "選択", planner_path(planner) %></td>
+  </tr>
+  <% end %>
+</table>

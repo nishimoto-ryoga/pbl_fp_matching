@@ -5,5 +5,5 @@ class Client < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reservations, dependent: :restrict_with_exception
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 10, message: '10文字以内です' }, chars_must_be_less_than4bytes: true
 end

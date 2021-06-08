@@ -3,16 +3,19 @@ Rails.application.routes.draw do
   root 'home#top'
   get '/top_fp' => 'home#top_fp'
 
-  devise_for :planners
+  devise_for :planners, module: 'planners'
   resources :planners, only: %i[index show edit update] do
     get :mypage, on: :collection
   end
 
-  devise_for :clients
+  devise_for :clients, module: 'clients'
   resources :clients, only: %i[edit update] do
     get :mypage, on: :collection
   end
 
-  resources :reservation_frames, only: %i[new create destroy]
-  resources :reservations, only: %i[new create destroy]
+  get '/reservation_frames' => 'reservation_frames#new'
+  resources :reservation_frames, only: %i[show new create destroy] do
+    resource :reservations, only: :new
+  end
+  resources :reservations, only: %i[create destroy]
 end
