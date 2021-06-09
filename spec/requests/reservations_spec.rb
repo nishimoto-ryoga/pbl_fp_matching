@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Reservation, type: :model do
   let!(:client) { FactoryBot.create(:client) }
-  let!(:reservation_frame) { FactoryBot.create(:reservation_frame, date: Time.zone.now.to_date) }
+  let!(:reservation_frame) { FactoryBot.create(:reservation_frame) }
   subject(:reservation) { Reservation.new(reservation_frame_id: reservation_frame_id, client_id: client_id) }
 
   context 'client_id, reservation_frame_id がすべて設定されている場合' do
