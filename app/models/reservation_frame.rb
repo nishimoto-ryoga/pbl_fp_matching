@@ -26,10 +26,9 @@ class ReservationFrame < ApplicationRecord
   end
 
   def saturday_is_shorttime
-    compare_time = CompareTime.new
     return if date.nil? || time_frame_id.nil?
     return unless date.wday == 6
-    return if compare_time.compare(time_frame)
+    return if TimeString.compare(time_frame.start_at)
 
     errors.add(:date, '土曜日は11時〜15時の間で指定してください。')
   end
