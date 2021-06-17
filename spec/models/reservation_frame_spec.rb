@@ -30,8 +30,8 @@ RSpec.describe ReservationFrame, type: :model do
       it 'reservation_frameが無効' do
         reservation_frame = ReservationFrame.new(
           date: next_mon,
-          time_frame_id: time_frame.id,
-          planner_id: nil
+          time_frame_id: nil,
+          planner_id: planner.id
         )
         expect(reservation_frame.valid?).to eq(false)
       end
