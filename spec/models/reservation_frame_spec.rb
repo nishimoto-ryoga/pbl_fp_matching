@@ -11,7 +11,7 @@ RSpec.describe ReservationFrame, type: :model do
     it 'reservation_frameが有効' do
       reservation_frame = ReservationFrame.new(
         date: next_mon,
-        time_frame_id: time_frame1.id,
+        time_frame_id: time_frame.id,
         planner_id: planner.id
       )
       expect(reservation_frame).to be_valid
@@ -21,7 +21,7 @@ RSpec.describe ReservationFrame, type: :model do
     it 'reservation_frameが無効' do
       reservation_frame = ReservationFrame.new(
         date: next_mon,
-        time_frame_id: time_frame1.id,
+        time_frame_id: time_frame.id,
         planner_id: nil
       )
       expect(reservation_frame.valid?).to eq(false)
@@ -31,7 +31,7 @@ RSpec.describe ReservationFrame, type: :model do
     it 'reservation_frameが無効' do
       reservation_frame = ReservationFrame.new(
         date: next_mon,
-        time_frame_id: time_frame1.id,
+        time_frame_id: time_frame.id,
         planner_id: nil
       )
       expect(reservation_frame.valid?).to eq(false)
@@ -41,7 +41,7 @@ RSpec.describe ReservationFrame, type: :model do
     it 'reservation_frameが無効' do
       reservation_frame = ReservationFrame.new(
         date: nil,
-        time_frame_id: time_frame1.id,
+        time_frame_id: time_frame.id,
         planner_id: planner.id
       )
       expect(reservation_frame.valid?).to eq(false)
@@ -51,7 +51,7 @@ RSpec.describe ReservationFrame, type: :model do
     it 'reservation_frameが無効' do
       reservation_frame = ReservationFrame.new(
         date: next_sta,
-        time_frame_id: time_frame1.id,
+        time_frame_id: time_frame.id,
         planner_id: planner.id
       )
       expect(reservation_frame.valid?).to eq(false)
@@ -61,7 +61,7 @@ RSpec.describe ReservationFrame, type: :model do
     it 'reservation_frameが有効' do
       reservation_frame = ReservationFrame.new(
         date: next_sta,
-        time_frame_id: time_frame2.id,
+        time_frame_id: time_frame.id,
         planner_id: planner.id
       )
       expect(reservation_frame).to be_valid
@@ -71,7 +71,7 @@ RSpec.describe ReservationFrame, type: :model do
     it 'reservation_frameが無効' do
       reservation_frame = ReservationFrame.new(
         date: next_sun,
-        time_frame_id: time_frame1.id,
+        time_frame_id: time_frame.id,
         planner_id: planner.id
       )
       expect(reservation_frame.valid?).to eq(false)
@@ -81,7 +81,7 @@ RSpec.describe ReservationFrame, type: :model do
     it 'reservation_frameが無効' do
       reservation_frame = ReservationFrame.new(
         date: Time.zone.now.to_date - 1,
-        time_frame_id: time_frame1.id,
+        time_frame_id: time_frame.id,
         planner_id: planner.id
       )
       expect(reservation_frame.valid?).to eq(false)
@@ -91,7 +91,7 @@ RSpec.describe ReservationFrame, type: :model do
     it 'reservation_frameが無効' do
       reservation_frame = ReservationFrame.new(
         date: Time.zone.now.to_date + 400,
-        time_frame_id: time_frame1.id,
+        time_frame_id: time_frame.id,
         planner_id: planner.id
       )
       expect(reservation_frame.valid?).to eq(false)
