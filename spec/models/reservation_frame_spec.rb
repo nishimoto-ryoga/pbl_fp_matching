@@ -14,16 +14,16 @@ RSpec.describe ReservationFrame, type: :model do
     end
   end
   context 'dateが月〜金のとき' do
-    let!(:next_mon) { Time.zone.now.to_date + 8 - Time.zone.now.to_date.wday }
+    let!(:weekday) { Date.current.next_week(%i[monday tuesday wednesday thursday friday].sample) }
     context 'date, time_frame_id, planner_id がすべて設定されている場合' do
       it 'reservation_frameが有効' do
-        reservation_frame.date = next_mon
+        reservation_frame.date = weekday
         expect(reservation_frame).to be_valid
       end
     end
     context 'time_frame_id が設定されていない場合' do
       it 'reservation_frameが無効' do
-        reservation_frame.date = next_mon
+        reservation_frame.date = weekday
         reservation_frame.time_frame_id = nil
         expect(reservation_frame.valid?).to eq(false)
       end
